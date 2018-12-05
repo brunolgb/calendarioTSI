@@ -1,0 +1,252 @@
+@font-face{
+	font-family: arial;
+	src: local("arial.ttf"),url("fontes/Arial.ttf");
+}
+@font-face{
+	font-family: Sawasdee;
+	src: local("fontes/Sawasdee.ttf"),url("fontes/Sawasdee.ttf");
+}
+@font-face{
+	font-family: impact;
+	src: local("impact.ttf"),url("fontes/Impact.ttf");
+}
+body{
+	margin: 0px;
+	padding: 0px;
+	background: #fff;
+	font-family: Sawasdee;
+	font-size: 20px;
+}
+*{box-sizing: border-box;}
+a{
+	outline: none;
+	text-decoration: none;
+	transition: all 1s;
+}
+figure{
+	margin: 0px;
+	padding: 0px;
+}
+
+/*-------header-------*/
+header{
+	display: flex;
+	width: 100%;
+	height: 100px;
+	margin: 0px;
+	padding: 2px 10px;
+	background: #eee;
+	position: relative;
+	box-shadow: 5px 0px 15px #999;
+}
+/*nav*/
+header figure img{
+	display: block;
+	height: 90px;
+}
+header span{
+	display: block;
+	width: auto;
+	height: 100%;
+	line-height: 100px;
+	margin: auto;
+	font-family: Sawasdee;
+	font-size: 1.5em;
+}
+header .botaoMenu{
+	display: block;
+	width: 90px;
+	height: 100%;
+	padding: 0px 10px;
+	background: #333;
+	position: absolute;
+	right: 5px;
+	top: 0px;
+	text-align: center;
+	cursor: pointer;
+}
+header .botaoMenu div{display: block;width: 100%; height: 10px; background: #fff;margin: 15px 0px; border-radius: 1em;}
+header nav ul{
+	position: absolute;
+	right: 5px;
+	top: 100px;
+	background: #333;
+	width: 500px;
+	height: auto;
+	padding: 10px;
+	margin: none;
+	margin-top: -50%;
+	transition: margin 0.5s;
+}
+header nav ul li{
+	display: block;
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	margin-bottom: 2px;
+	background: #fff;
+	list-style: none;
+	box-sizing: border-box;
+	text-align: center;
+}
+header nav ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #4E9A06FF;
+}
+/*----------corpo -----------*/
+.botoesGeral{
+	display: inline-block;
+	width: 300px;
+	height: 60px;
+	margin: 30px 0px 10px 10px;
+	line-height: 60px;
+	text-align: center;
+	outline: none;
+	background: #fff;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	font-size: 0.8em;
+}
+.corpo{
+	display: block;
+	width: 600px;
+	height: auto;
+	background: #fff;
+	padding: 0px 5px;
+	position: absolute;
+	border: 1px solid #eee;
+	box-shadow: 5px 5px 20px #999;
+	margin-left: -100%;
+	z-index: 9999;
+	transition: margin 0.5s;
+}
+/*para mostrar a corpo*/
+.mostrar{
+	margin-left: 0px;
+	margin-top: 0px;
+}
+.posicao{
+	margin-left: 0px;
+	margin-top: 100px;
+	left: 25%;
+}
+
+.corpo #cadMat div{
+	display: block;
+	padding: 10px;
+	border:0px solid #eee;
+}
+.corpo #cadMat div label{display: block}
+.corpo #cadMat div input,.corpo #cadMat div select{
+	display: block;
+	width: 100%;
+	height: 60px;
+	padding: 0px 5px;
+	border: 1px solid #eee;
+	outline: none;
+	font-family: Sawasdee;
+	font-size: 1em;
+	background: #fff;
+}
+.corpo #cadMat div .acao{
+	display: inline-block;
+	width: 250px;
+	height: 60px;
+	padding: 0px 5px;
+	background: #fff;
+	font-size: 0.8em;
+	transition: all 0.4s;
+	cursor: pointer;
+	outline: none;
+}
+.corpo #cadMat div .acao[name='cadastrar']{
+	border: 1px solid #4E9A06FF;
+	color: #4E9A06FF;
+}
+/*.corpo div .acao[name='desfazer']{
+	border: 1px solid #CC0000FF;
+	color: #CC0000FF;
+}*/
+
+/*hover nos botoes*/
+.corpo #cadMat div .acao[name='cadastrar']:hover{
+	background: #73D216FF;
+	color: #fff;
+}
+/*.corpo div .acao[name='desfazer']:hover{
+	background: #EF2929FF;
+	color: #fff;
+}*/
+
+/*resultado*/
+.resultado{
+	width: 100%;
+	height: auto;
+	font-size: 0.8em;
+	margin-top: 50px;
+}
+.resultado thead tr td{
+	text-align: center;
+	font-weight: bold;
+	border-bottom: 1px solid #eee;
+}
+.resultado tbody tr td{
+	text-align: center;
+	border-width: 0px 0px 1px 0px;
+	border-style: solid;
+	border-color: #eee;
+	text-transform: capitalize;
+}
+.resultado tbody tr:hover{
+	color: #A40000FF;
+	font-weight: bold;
+}
+/*larguras de blocos*/
+.larg5{width: 5%;}
+.larg10{width: 10%;}
+.larg20{width: 20%;}
+.larg30{width: 30%;}
+.larg40{width: 40%;}
+.larg50{width: 50%;}
+.larg60{width: 60%;}
+.larg70{width: 70%;}
+.larg80{width: 80%;}
+.larg90{width: 90%;}
+.btnAcao{display: flex;}
+.btnAcao button{
+ 	outline: none;
+ 	border: 1px solid #ddd;
+ 	background: #fff;
+ 	display: block;
+ 	width: 40px;
+ 	height: 40px;
+ 	cursor: pointer;
+ 	margin-left: 2px;
+ 	text-align: center;
+ 	padding: 0px;
+}
+.btnAcao img{
+	display: block;
+	height: 80%;
+	margin: auto;
+}
+.msgInfoPadrao{
+	display: block;
+	
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	background: #fff;
+	box-shadow: 0px 0px 5px #999;
+	padding: 15px;
+	width: 250px;
+	text-align: center;
+	margin-right: -400px;
+	transition: all 1s;
+}
+.msgInfoAcao{
+	margin-right: 0px;
+}
+.msgInfoPadrao img{display: block; margin: auto; height: 90px;}
