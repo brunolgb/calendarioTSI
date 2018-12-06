@@ -7,5 +7,9 @@
 		{
 			echo strstr($b['nomeUser']," ",true)."";
 		}
+		else
+		{
+			echo "<script>Usuario Não encontrado</script>";
+		}
 	}
 ?>

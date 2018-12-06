@@ -6,7 +6,7 @@
 	<link rel="shortcut icon" href="arquivos/icone.png">
 	<title>Calendário</title>
 </head>
-<body onload="carregar(),requisicao()">
+<body onload="carregar('materia')">
 	<?php
 		include("header.php");
 		include("conexao.php");
@@ -75,38 +75,10 @@
 				<td>Total Horas</td>
 				<td>Usuario Cadastrou</td>
 				<td>Data Cadastrou</td>
-				<!-- <td>Ação</td> -->
+				<td class="larg5">Ação</td>
 			</tr>
 		</thead>
 		<tbody>
-		<?php
-			$comando = "SELECT * FROM materia";
-			$query = mysqli_query($conexao,$comando);
-			while ($a = mysqli_fetch_array($query))
-			{
-				$idMat = $a['idMat'];
-				echo "<tr>";
-				echo "<td>".$idMat."</td>";
-				echo "<td>".$a['nomeMat']."</td>";
-				echo "<td>".$a['semestre']."</td>";
-				echo "<td>".$a['dataInicio']."</td>";
-				echo "<td>".$a['dataFinal']."</td>";
-				echo "<td>".$a['qtdHoras']."</td>";
-				echo "<td>";
-				$usuarioCad = $a['userCadastrou'];
-				include("userConect.php");
-				echo "</td>";
-				echo "<td>".$a['dateCadastrou']."</td>";
-				// echo "<td><button value='".$a['idUser']."'>X</button></td>";
-				echo "</tr>";
-			}
-			if ($idMat == null or empty($idMat))
-			{
-				echo "<tr>";
-				echo "<td colspan='8'>Não possui registro</td>";
-				echo "</tr>";
-			}
-		?>
 		</tbody>
 	</table>
 	<script src="arquivos/estilo.js"></script>

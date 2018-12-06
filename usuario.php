@@ -6,7 +6,7 @@
 	<link rel="shortcut icon" href="arquivos/icone.png">
 	<title>Calendário</title>
 </head>
-<body onload="carregar(),requisicao()">
+<body onload="carregar('usuario')">
 	<?php
 		include("header.php");
 		include("conexao.php");
@@ -22,7 +22,7 @@
 			</div>
 			<div>
 				<label for="nascUser">Data de Nascimento</label>
-				<input type="date" id="nascUser" name="nascUser" required="">
+				<input type="date" id="nascUser" name="nascUser" required="" maxlength="6">
 			</div>
 		
 			<div>
@@ -35,7 +35,7 @@
 				$nome = $_POST['nome'];
 				$nascUser = $_POST['nascUser'];
 
-				$cadastrar = "INSERT INTO usuario (nomeUser,nascUser,dataCadastrou) VALUES ('".$nome."','".$nascUser."','".$dataAgora."')";
+				$cadastrar = "INSERT INTO usuario (nomeUser,nascUser,userCadastrou,dataCadastrou) VALUES ('".$nome."','".$nascUser."','".$id."','".$dataAgora."')";
 				// echo $cadastrar;
 				mysqli_query($conexao,$cadastrar) or die("erro");
 			}
@@ -49,34 +49,10 @@
 				<td>Data de Nascimento</td>
 				<td>Usuário Cadastro</td>
 				<td>Data do Cadastro</td>
+				<td class="larg5">Ação</td>
 			</tr>
 		</thead>
 		<tbody>
-		<?php
-			$comando = "SELECT * FROM usuario";
-			$query = mysqli_query($conexao,$comando);
-			while ($a = mysqli_fetch_array($query))
-			{
-				$idUser = $a['idUser'];
-				echo "<tr>";
-				echo "<td>".$idUser."</td>";
-				echo "<td>".$a['nomeUser']."</td>";
-				echo "<td>".$a['nascUser']."</td>";
-				echo "<td>";
-				$usuarioCad = $a['userCadastrou'];
-				include("userConect.php");
-				echo "</td>";
-				echo "<td>".$a['dataCadastrou']."</td>";
-				// echo "<td><button value='".$a['idUser']."'>X</button></td>";
-				echo "</tr>";
-			}
-			if ($idUser == null or empty($idUser))
-			{
-				echo "<tr>";
-				echo "<td colspan='8'>Não possui registro</td>";
-				echo "</tr>";
-			}
-		?>
 		</tbody>
 	</table>
 	<script src="arquivos/estilo.js"></script>

@@ -246,7 +246,7 @@ header nav ul li a{
 	margin-right: -400px;
 	transition: all 1s;
 }
-.msgInfoAcao{
+.msg{
 	margin-right: 0px;
 }
 .msgInfoPadrao img{display: block; margin: auto; height: 90px;}

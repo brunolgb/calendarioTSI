@@ -7,7 +7,7 @@
 	<script src="arquivos/estilo.js"></script>
 	<title>Calendário</title>
 </head>
-<body onload="carregar()">
+<body onload="carregar('evento')">
 	<?php
 		include("header.php");
 		include("conexao.php");

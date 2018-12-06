@@ -1,8 +1,21 @@
 <?php
 	include("conexao.php");
 	$id = $_GET['id'];
-	$comando = "DELETE FROM evento WHERE idEvento='".$id."'";
-	mysqli_query($conexao,$comando) or die("morreu");
-	echo "<img src='arquivos/img-success.png'>";
-	echo "Excluido com sucesso";
+	$pagina = $_GET['pagina'];
+
+	// testes para verificar qual pagina é
+	if ($pagina == 'usuario')
+	{
+		$complemento = "idUser";
+	}
+	if ($pagina == 'materia')
+	{
+		$complemento = "idMat";
+	}
+	if ($pagina == 'evento')
+	{
+		$complemento = "idEvento";
+	}
+	$apagar = "DELETE FROM ".$pagina." WHERE ".$complemento."='".$id."'";
+	mysqli_query($conexao,$apagar);
 ?>

@@ -13,10 +13,10 @@ function mostrarCorpo()
 		botaoToCorpo.innerHTML = "+ Cadastrar";
 	}
 }
-function mostrar()
+function mostrar(pagina)
 {
 	var r = new XMLHttpRequest();
-	r.open("GET","mostrar.php",true);
+	r.open("GET","mostrar.php?pagina="+pagina,true);
 	r.onreadystatechange = function ()
 	{
 		var result = r.responseText;
@@ -25,9 +25,9 @@ function mostrar()
 	};
 	r.send();
 }
-function carregar()
+function carregar(pagAtual)
 {
-	mostrar();
+	mostrar(pagAtual);
 	// recuperando dados
 	var botaoToCorpo = document.getElementsByClassName('cadastrarEvento')[0];
 	var corpo = document.getElementsByClassName('corpo')[0];
@@ -44,7 +44,7 @@ function carregar()
 	}
 }
 
-function requisicao (id,tbl)
+function requisicaoAcao (id,tbl)
 {
 	var requi = new XMLHttpRequest();
 	requi.open("GET","acao.php?id="+id+"&tbl="+tbl,true);
@@ -54,23 +54,16 @@ function requisicao (id,tbl)
 	};
 	requi.send();
 }
-function excluir (idExcluir)
+function excluir (idExcluir,pagine)
 {
 	var requisicao = new XMLHttpRequest();
-	requisicao.open("GET","excluir.php?id="+idExcluir,true);
-	requisicao.onreadystatechange = function()
-	{
-		var resultado = requisicao.responseText;
-		var mensagem = document.querySelector(".msgInfoPadrao");
-		mensagem.classList.toggle("msgInfoAcao");
-		mensagem.innerHTML = resultado;
-	}
+	requisicao.open("GET","excluir.php?id="+idExcluir+"&pagina="+pagine,true);
 	requisicao.send();
-	mostrar();
+	mostrar(pagine);
 }
 
 function acao(valorId,valorTbl)
 {
-	requisicao(valorId,valorTbl);
+	requisicaoAcao(valorId,valorTbl);
 	mostrarCorpo();
 }
